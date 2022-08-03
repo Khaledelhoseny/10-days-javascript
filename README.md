@@ -1,4 +1,4 @@
 # 10-days-javascript
-##hello-world 
-##data-types
+## hello-world 
+## data-types
 
