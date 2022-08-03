@@ -1,4 +1,6 @@
 # 10-days-javascript
-## hello-world 
-## data-types
+
+
+1. Added hello-world js file 
+2. Added data-types js file 
 
