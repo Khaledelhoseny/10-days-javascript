@@ -6,5 +6,5 @@
 3. Added arithmetic-operators js file
 4. Added functions js file
 5. Added let and const js file
-6. Added conditional statements js file
+6. Added conditional-statements-if js file
 
