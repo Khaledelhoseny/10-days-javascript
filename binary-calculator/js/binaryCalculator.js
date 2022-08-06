@@ -61,46 +61,50 @@ let result = document.querySelector("#res")
 
 
 button0.addEventListener("click" , showButton0 )
-let  result0 =''
+
 
 function showButton0(){
   
-  result0=button0.innerText
-  result.innerText += result0
-  console.log(result0)
+  result.innerText+=button0.innerText
 
+  console.log(result.innerText)
   
 }
 button1.addEventListener("click" , showButton1 )
-let result1 =''
+
+
 
 function showButton1(){
  
-  result1=button1.innerText
-  result.innerText += result1
-  console.log(result1)
-    
+  result.innerText+=button1.innerText
+ 
+    console.log(result.innerText)
   
 }
 
 
-buttonSum.addEventListener("click" , showbuttonSum )
-function showbuttonSum(){
+// buttonSum.addEventListener("click" , showbuttonSum )
+// function showbuttonSum(){
    
-    result.innerText +=  buttonSum.innerText 
-}
+//     result.innerText +=  buttonSum.innerText 
+// }
 
 
-result.innerText = result0 + result1
+// result.innerText = result0 + result1
 
 
 buttonEqual.addEventListener("click" ,equalFunc)
 
 function equalFunc(){
 
-    let deci1 = parseInt(result, 2); //decimal number
-     //decimal number
-    console.log(deci1)
+  
+  console.log(result.innerText) 
+  let deci = parseInt(result.innerText, 2);
+  console.log(deci)
+  
+    // let deci1 = parseInt(result, 2); //decimal number
+    //  //decimal number
+    // console.log(deci1)
         
     // let resultDecimals = deci1 + deci2 
     // console.log(resultDecimals)
