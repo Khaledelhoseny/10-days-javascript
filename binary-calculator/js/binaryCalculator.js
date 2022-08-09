@@ -1,6 +1,3 @@
-
-
-
 let button0 = document.querySelector("#btn0") 
 let button1 = document.querySelector("#btn1")
 let buttonSum = document.querySelector("#btnSum")
