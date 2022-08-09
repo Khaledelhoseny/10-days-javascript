@@ -1,0 +1,22 @@
+#btns{
+    
+    width: 200px;
+    height: 200px;
+
+ 
+    
+    display: flex;
+    flex-flow: row wrap;
+
+    align-items: center;
+    justify-content: center;
+
+    margin: auto;
+
+}
+
+#btns button {
+    width: 64px;
+    height: 64px;
+}
+
