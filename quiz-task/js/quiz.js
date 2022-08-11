@@ -100,10 +100,15 @@ function get_random_index (ele) {
     return  Math.floor(Math.random()*ele.length);
     
   }
-  
+
+  let number_of_random = 0
   function get_random(list_of_elements){
     index = get_random_index(list_of_elements);
+    number_of_random++
+    console.log(number_of_random)
     return list_of_elements[index];
+   
+
   }
 
 
