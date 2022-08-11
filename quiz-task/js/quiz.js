@@ -93,15 +93,19 @@ for(let x of myObject.wordList ){
 
 
 
+
+
 function get_random_index (ele) {
-    return Math.floor((Math.random()*ele.length));
+
+    return  Math.floor(Math.random()*ele.length);
     
   }
-
+  
   function get_random(list_of_elements){
     index = get_random_index(list_of_elements);
     return list_of_elements[index];
   }
+
 
 
 let wordText = document.querySelector("#word")
@@ -112,24 +116,66 @@ let verbText = document.querySelector("#verb")
 
 let adverbText = document.querySelector("#adverb")
 
+let buttons = document.querySelectorAll("button")
+
 let adjectiveText = document.querySelector("#adjective")
 
-wordText.innerText = get_random(wordsArray) 
+let bar_score = document.querySelector(".bar")
 
+ 
+let count = 0;
+function increment_scoreBar(){
+        if(bar_score.offsetWidth<368){ 
 
-var index = myObject.wordList.map(function(e) { return e.word; }).indexOf(wordText.innerText);
-
-
-
-nounText.addEventListener( "click" , checkFunc )
-
-function checkFunc(){
-
-    if(nounText.innerText === myObject.wordList[index].pos ){
-        console.log("sucsees")
-    }
-    wordText.innerText = get_random(wordsArray)
-    
-
+            let x = bar_score.offsetWidth+23
+            bar_score.style.width = `${x}px`
+            count+=1
+        }
+            
+            console.log(count +"of"+wordsArray.length)
+        
 }
+
+
+
+function change_random(){
+    wordText.innerText = get_random(wordsArray) 
+}
+
+
+change_random()
+
+
+
+buttons.forEach(function (button){
+    button.addEventListener("click" , checkFunc)
+
+    function checkFunc(){
+
+    if(button.innerText === myObject.wordList[index].pos){
+
+        
+        button.classList.add("succes")
+        setTimeout(function(){
+            button.classList.remove("succes")
+        },2000)
+        increment_scoreBar()
+        
+
+        
+        
+        
+    }else if(button.innerText !== myObject.wordList[index].pos){
+        button.classList.add("wrong")
+        setTimeout(function(){
+            button.classList.remove("wrong")
+        },2000)
+        
+    }
+    
+    setTimeout(change_random,2000)
+    
+}
+})
+
 
