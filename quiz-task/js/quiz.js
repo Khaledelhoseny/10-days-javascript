@@ -101,11 +101,9 @@ function get_random_index (ele) {
     
   }
 
-  let number_of_random = 0
+ 
   function get_random(list_of_elements){
     index = get_random_index(list_of_elements);
-    number_of_random++
-    console.log(number_of_random)
     return list_of_elements[index];
    
 
@@ -128,17 +126,15 @@ let adjectiveText = document.querySelector("#adjective")
 let bar_score = document.querySelector(".bar")
 
  
-let count = 0;
+
 function increment_scoreBar(){
-        if(bar_score.offsetWidth<368){ 
+        if(count_clicked<16){ 
 
             let x = bar_score.offsetWidth+23
             bar_score.style.width = `${x}px`
-            count+=1
+            
         }
             
-            console.log(count +"of"+wordsArray.length)
-        
 }
 
 
@@ -150,24 +146,23 @@ function change_random(){
 
 change_random()
 
-
+let count_success = 0 ; 
+let count_clicked = 0 ;
 
 buttons.forEach(function (button){
     button.addEventListener("click" , checkFunc)
-
+    
     function checkFunc(){
-
     if(button.innerText === myObject.wordList[index].pos){
 
-        
         button.classList.add("succes")
         setTimeout(function(){
             button.classList.remove("succes")
         },2000)
+        console.log(count_success+=1) 
+        count_clicked+=1
+        
         increment_scoreBar()
-        
-
-        
         
         
     }else if(button.innerText !== myObject.wordList[index].pos){
@@ -175,12 +170,33 @@ buttons.forEach(function (button){
         setTimeout(function(){
             button.classList.remove("wrong")
         },2000)
-        
+
+        count_clicked+=1
     }
     
     setTimeout(change_random,2000)
-    
+    showResult()
 }
+
+
 })
+
+let scoreResult = document.querySelector("#score_result")
+
+
+function showResult(){ 
+
+        if (count_clicked==15){
+        let div = document.createElement("div")
+        div.classList.add("score_container")
+        let parg = document.createElement("p")
+        parg.innerText = `${count_success} of ${count_clicked}` 
+        div.appendChild(parg)
+        document.querySelector("#wrap").appendChild(div)
+        }
+        
+    
+
+}
 
 

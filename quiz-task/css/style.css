@@ -58,3 +58,12 @@
 button{
     cursor: pointer;
 }
+
+.score_container{
+        margin: auto;
+        background-color: gray;
+        width: 200px;
+        height: 50px;
+        display: flex;
+        justify-content: center;;
+}
