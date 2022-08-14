@@ -128,11 +128,12 @@ let bar_score = document.querySelector(".bar")
  
 
 function increment_scoreBar(){
-        if(count_clicked<16){ 
+        if(count_clicked < 16 ){ 
 
             let x = bar_score.offsetWidth+23
             bar_score.style.width = `${x}px`
             
+
         }
             
 }
@@ -162,7 +163,7 @@ buttons.forEach(function (button){
         console.log(count_success+=1) 
         count_clicked+=1
         
-        increment_scoreBar()
+        
         
         
     }else if(button.innerText !== myObject.wordList[index].pos){
@@ -174,29 +175,60 @@ buttons.forEach(function (button){
         count_clicked+=1
     }
     
+    increment_scoreBar()
     setTimeout(change_random,2000)
+    showProgress()
     showResult()
+   
+
 }
 
 
 })
 
-let scoreResult = document.querySelector("#score_result")
-
-
-function showResult(){ 
-
-        if (count_clicked==15){
-        let div = document.createElement("div")
-        div.classList.add("score_container")
-        let parg = document.createElement("p")
-        parg.innerText = `${count_success} of ${count_clicked}` 
-        div.appendChild(parg)
-        document.querySelector("#wrap").appendChild(div)
-        }
-        
+let scoreResult = document.querySelector(".score_container p")
+function showProgress(){
+   
+    scoreResult.innerText = `${count_success} of 15 `
     
-
 }
+
+
+
+function showResult(){
+        if(count_clicked==15){
+
+            document.querySelector("#big_container").style.display="none"
+
+            let div =  document.createElement("div")
+            div.classList.add("result")
+            
+            let parg = document.createElement("h1")
+            parg.innerText = `your score is ${ Math.floor((count_success/15)*100)}% `
+            div.appendChild(parg)
+            let button = document.createElement("button")
+            div.appendChild(button)
+            
+            button.innerText = "try again"
+            document.body.appendChild(div);
+
+            document.querySelector(".result button").addEventListener("click",function(){
+                console.log("try again button ") 
+                document.querySelector(".result").style.display="none"
+                document.querySelector("#big_container").style.display="block"
+                bar_score.style.width = `0px`
+                count_clicked = 0 
+                count_success = 0
+                scoreResult.innerText = "0 of 15"
+             
+            })
+
+            }
+            
+        }
+       
+
+    
+   
 
 
