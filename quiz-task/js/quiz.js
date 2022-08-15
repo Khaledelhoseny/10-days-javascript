@@ -104,8 +104,8 @@ function get_random_index (ele) {
  
   function get_random(list_of_elements){
     index = get_random_index(list_of_elements);
-    return list_of_elements[index];
-   
+    return list_of_elements[index][0].toUpperCase() + list_of_elements[index].substring(1);
+    
 
   }
 
@@ -129,11 +129,8 @@ let bar_score = document.querySelector(".bar")
 
 function increment_scoreBar(){
         if(count_clicked < 16 ){ 
-
             let x = bar_score.offsetWidth+23
             bar_score.style.width = `${x}px`
-            
-
         }
             
 }
@@ -153,27 +150,48 @@ let count_clicked = 0 ;
 buttons.forEach(function (button){
     button.addEventListener("click" , checkFunc)
     
+    
     function checkFunc(){
     if(button.innerText === myObject.wordList[index].pos){
-
         button.classList.add("succes")
+
+        for (let button of buttons) {
+            button.disabled = true;
+          }
+
+          setTimeout(() => {
+            for (let button of buttons) {
+                button.disabled = false;
+              }
+          }, 2000);
+       
         setTimeout(function(){
             button.classList.remove("succes")
+
         },2000)
+
         console.log(count_success+=1) 
         count_clicked+=1
         
-        
-        
-        
     }else if(button.innerText !== myObject.wordList[index].pos){
         button.classList.add("wrong")
+        for (let button of buttons) {
+            button.disabled = true;
+          }
+
+          setTimeout(() => {
+            for (let button of buttons) {
+                button.disabled = false;
+              }
+          }, 2000);
+
         setTimeout(function(){
             button.classList.remove("wrong")
         },2000)
-
         count_clicked+=1
+        
     }
+
     
     increment_scoreBar()
     setTimeout(change_random,2000)
@@ -199,7 +217,6 @@ function showResult(){
         if(count_clicked==15){
 
             document.querySelector("#big_container").style.display="none"
-
             let div =  document.createElement("div")
             div.classList.add("result")
             
@@ -212,16 +229,20 @@ function showResult(){
             button.innerText = "try again"
             document.body.appendChild(div);
 
-            document.querySelector(".result button").addEventListener("click",function(){
+            document.querySelector(".result button").addEventListener("click", reset )
+
+            function reset() {
+
                 console.log("try again button ") 
-                document.querySelector(".result").style.display="none"
+                div.remove()
                 document.querySelector("#big_container").style.display="block"
                 bar_score.style.width = `0px`
                 count_clicked = 0 
                 count_success = 0
                 scoreResult.innerText = "0 of 15"
-             
-            })
+
+            }
+           
 
             }
             
@@ -232,3 +253,10 @@ function showResult(){
    
 
 
+        const btn = document.getElementById("myBtn")
+        function myFunction() {
+          btn.disabled = true;
+          setTimeout(()=>{
+            btn.disabled = false;
+            console.log('Button Activated')}, 5000)
+        }

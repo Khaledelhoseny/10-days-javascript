@@ -1,3 +1,14 @@
+
+:disabled{
+    pointer-events: none;
+    background-color: #efefef;
+    color: black;
+    
+}
+
+
+
+
 .word{
 
     width: 100px;
@@ -37,7 +48,7 @@
 .bar{
     width: 0px ;
     height: 20px;
-    background-color: green;
+    background-color: blue;
     
 }
 
@@ -91,5 +102,6 @@ button{
 .result h1{
     text-align: center;
 }
+
 
 
