@@ -85,28 +85,25 @@ let jsonFile = ` {
 let myObject = JSON.parse(jsonFile)
 
 console.log(myObject.wordList)
-
 let wordsArray = []
-for(let x of myObject.wordList ){
-    wordsArray.push(x.word)   
+function generateArray(){
+    for(let x of myObject.wordList ){
+        wordsArray.push(x.word)   
+    }
 }
 
-
+generateArray()
 
 
 
 function get_random_index (ele) {
-
-    return  Math.floor(Math.random()*ele.length);
-    
+    return Math.floor(Math.random()*ele.length);
   }
-
- 
   function get_random(list_of_elements){
     index = get_random_index(list_of_elements);
-    return list_of_elements[index][0].toUpperCase() + list_of_elements[index].substring(1);
+    // return list_of_elements[index][0].toUpperCase() + list_of_elements[index].substring(1);
+    return list_of_elements[index]
     
-
   }
 
 
@@ -125,6 +122,7 @@ let adjectiveText = document.querySelector("#adjective")
 
 let bar_score = document.querySelector(".bar")
 
+
  
 
 function increment_scoreBar(){
@@ -136,22 +134,45 @@ function increment_scoreBar(){
 }
 
 
-
 function change_random(){
-    wordText.innerText = get_random(wordsArray) 
+
+    wordText.innerText = get_random(wordsArray)
+   
 }
 
 
 change_random()
 
+let removeElments = []
+function updateWordsArray(){
+   
+    // wordsArray.splice(wordsArray.indexOf(wordText.innerText),1)
+    // myObject.wordList.splice(index,1)
+    if(!(removeElments.includes(wordText.innerText))){
+        wordText.innerText = get_random(wordsArray)
+        removeElments.push(wordText.innerText)
+    }else if(removeElments.includes(get_random(wordsArray))){
+        return false
+    }
+    
+
+}
+
+
+
+
+
+
 let count_success = 0 ; 
 let count_clicked = 0 ;
 
 buttons.forEach(function (button){
+   
     button.addEventListener("click" , checkFunc)
     
     
     function checkFunc(){
+    
     if(button.innerText === myObject.wordList[index].pos){
         button.classList.add("succes")
 
@@ -194,10 +215,11 @@ buttons.forEach(function (button){
 
     
     increment_scoreBar()
-    setTimeout(change_random,2000)
+    setTimeout(updateWordsArray,2000)
     showProgress()
     showResult()
-   
+    
+
 
 }
 
@@ -230,7 +252,6 @@ function showResult(){
             document.body.appendChild(div);
 
             document.querySelector(".result button").addEventListener("click", reset )
-
             function reset() {
 
                 console.log("try again button ") 
@@ -240,23 +261,26 @@ function showResult(){
                 count_clicked = 0 
                 count_success = 0
                 scoreResult.innerText = "0 of 15"
+                wordsArray = ["khaled","ahmed"]
+               
+               
 
             }
            
 
+
             }
+
+            
             
         }
        
+        // const btn = document.getElementById("myBtn")
+        // function myFunction() {
+        //   btn.disabled = true;
+        //   setTimeout(()=>{
+        //     btn.disabled = false;
+        //     console.log('Button Activated')}, 5000)
 
-    
-   
 
-
-        const btn = document.getElementById("myBtn")
-        function myFunction() {
-          btn.disabled = true;
-          setTimeout(()=>{
-            btn.disabled = false;
-            console.log('Button Activated')}, 5000)
-        }
+        // }

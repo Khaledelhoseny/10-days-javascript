@@ -83,17 +83,20 @@ for(let i = 0 ; i<input_array.length ; i++){
     for(let j = 1 ; j<newS.length ; j++){
         
        let andResult = input_array[i] & newS[j]   //5
-       
-       if(finalResult<andResult){ 
-        secondHeighst = finalResult
-        finalResult = andResult   //2
-       }
+      
+      //  if(finalResult<k){ 
+      //   finalResult = andResult
+      //   secondHeighst = finalResult
+           
+      //  }
        
      }
-
+     
 }
+console.log(andResult)
 
-return secondHeighst
+
+
 
 // let maxArray = []
 // for(let i = 0 ; i < resulArray.length ; i++){  //resultArray = [0]
@@ -112,3 +115,5 @@ return secondHeighst
 
 
 
+
+console.log("kjaled")
