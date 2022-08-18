@@ -140,8 +140,8 @@ function change_random(){
    
 }
 
-
 change_random()
+
 
 let removeElments = []
 function updateWordsArray(){
@@ -151,8 +151,6 @@ function updateWordsArray(){
     if(!(removeElments.includes(wordText.innerText))){
         wordText.innerText = get_random(wordsArray)
         removeElments.push(wordText.innerText)
-    }else if(removeElments.includes(get_random(wordsArray))){
-        return false
     }
     
 
