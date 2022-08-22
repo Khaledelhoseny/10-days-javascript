@@ -96,14 +96,18 @@ generateArray()
 
 
 
-function get_random_index (ele) {
-    return Math.floor(Math.random()*ele.length);
+
+
+function get_random_index(ele) {
+
+    return Math.floor(Math.random()*ele.length)
   }
+
+
   function get_random(list_of_elements){
     index = get_random_index(list_of_elements);
     // return list_of_elements[index][0].toUpperCase() + list_of_elements[index].substring(1);
     return list_of_elements[index]
-    
   }
 
 
@@ -135,25 +139,17 @@ function increment_scoreBar(){
 
 
 function change_random(){
-
     wordText.innerText = get_random(wordsArray)
-   
 }
 
 change_random()
 
 
-let removeElments = []
 function updateWordsArray(){
-   
-    // wordsArray.splice(wordsArray.indexOf(wordText.innerText),1)
-    // myObject.wordList.splice(index,1)
-    if(!(removeElments.includes(wordText.innerText))){
-        wordText.innerText = get_random(wordsArray)
-        removeElments.push(wordText.innerText)
-    }
-    
 
+    wordsArray.splice(wordsArray.indexOf(wordText.innerText),1)
+    myObject.wordList.splice(index,1)
+  
 }
 
 
@@ -193,6 +189,16 @@ buttons.forEach(function (button){
         count_clicked+=1
         
     }else if(button.innerText !== myObject.wordList[index].pos){
+        console.log(myObject.wordList[index].pos)
+
+        let rightAns = document.querySelector(`#${myObject.wordList[index].pos}`)
+        rightAns.classList.add("succes")
+        setTimeout(function(){
+            rightAns.classList.remove("succes")
+        },2000)
+
+
+
         button.classList.add("wrong")
         for (let button of buttons) {
             button.disabled = true;
@@ -213,7 +219,8 @@ buttons.forEach(function (button){
 
     
     increment_scoreBar()
-    setTimeout(updateWordsArray,2000)
+    setTimeout(change_random,2000)
+    updateWordsArray()
     showProgress()
     showResult()
     
@@ -259,9 +266,8 @@ function showResult(){
                 count_clicked = 0 
                 count_success = 0
                 scoreResult.innerText = "0 of 15"
-                wordsArray = ["khaled","ahmed"]
-               
-               
+                
+            
 
             }
            
@@ -273,12 +279,4 @@ function showResult(){
             
         }
        
-        // const btn = document.getElementById("myBtn")
-        // function myFunction() {
-        //   btn.disabled = true;
-        //   setTimeout(()=>{
-        //     btn.disabled = false;
-        //     console.log('Button Activated')}, 5000)
-
-
-        // }
+ 
