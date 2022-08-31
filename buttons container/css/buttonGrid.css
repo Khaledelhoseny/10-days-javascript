@@ -1,22 +1,15 @@
+
+
+
 #btns{
-    
-    width: 200px;
-    height: 200px;
-
  
-    
-    display: flex;
-    flex-flow: row wrap;
-
-    align-items: center;
-    justify-content: center;
-
-    margin: auto;
+    width: 75%;
 
 }
 
-#btns button {
-    width: 64px;
-    height: 64px;
+#btns .allbtns {
+    width: 30%;
+    height:48px;
+    font-size: 24px;
 }
 
