@@ -198,11 +198,3 @@ createMicrobrewery()
 createMicrobrewery('khaled')
 
 
-<<<<<<< HEAD
-
-
-=======
->>>>>>> 4f0feaa8ad651aa1e1ef074e9b7ad72578162068
-
-
-
