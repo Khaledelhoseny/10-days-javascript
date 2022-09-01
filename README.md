@@ -1,6 +1,5 @@
-# 10-days-javascript
-
-
+# 10-days-javascript 
+## solutions:
 1. Added hello-world js file 
 2. Added data-types js file 
 3. Added arithmetic-operators js file

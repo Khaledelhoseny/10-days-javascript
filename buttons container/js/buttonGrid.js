@@ -21,6 +21,5 @@ function plusOne(){
     button3.innerHTML = button2.innerHTML 
     button2.innerHTML = number
         
-
 }
 
