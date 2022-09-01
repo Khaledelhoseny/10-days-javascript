@@ -118,8 +118,15 @@ function clear(){
 
 
 
+function createMicrobrewery(name="") {
+  
+  console.log(`the name is ${name}`)
+}
 
- 
+createMicrobrewery()
+createMicrobrewery('khaled')
+
+
 
 
 
